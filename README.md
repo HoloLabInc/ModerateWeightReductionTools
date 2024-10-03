@@ -4,7 +4,7 @@
 
 This blender add-on generates a model from the original model with reduced polygon mesh and optimized textures.    
 
-![image](image.png)  
+![image](image.jpg)  
 
 ## How To Install
 
