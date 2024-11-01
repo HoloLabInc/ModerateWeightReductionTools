@@ -486,7 +486,7 @@ class HOLOLAB_PT_SideBar(bpy.types.Panel):
         op.texture_name = scene.texture_name
 
 def menu_draw(cls, context):
-    cls.layout.menu(HoloLab_PT_SideBar.bl_idname)
+    cls.layout.menu(HOLOLAB_PT_SideBar.bl_idname)
 
 def register_properies():
     scene = bpy.types.Scene
