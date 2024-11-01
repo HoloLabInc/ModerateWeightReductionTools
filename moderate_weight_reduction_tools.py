@@ -42,7 +42,7 @@ bl_info = {
     "category": "Tool"
 }
 
-class HoloLab_OT_ModerateWeightReductionTools(bpy.types.Operator):
+class HOLOLAB_OT_ModerateWeightReductionTools(bpy.types.Operator):
     bl_idname = "hololab.moderate_weight_reduction_tools"
     bl_label = "Moderate Weight Reduction Tools"
     bl_description = "Generates models with reduced polygon mesh and optimized textures from the original model."
@@ -314,7 +314,7 @@ class HoloLab_OT_ModerateWeightReductionTools(bpy.types.Operator):
         temp_file = os.path.join(bpy.app.tempdir, "temp.glb")
         bpy.ops.export_scene.gltf(filepath=temp_file, use_selection=True)
 
-class HoloLab_OT_SaveBakedTexture(bpy.types.Operator):
+class HOLOLAB_OT_SaveBakedTexture(bpy.types.Operator):
     bl_idname = "hololab.save_baked_texture"
     bl_label = "Save Baked Texture"
     bl_description = "Save baked texture to PNG file for export the model as FBX file."
@@ -403,7 +403,7 @@ class HoloLab_OT_SaveBakedTexture(bpy.types.Operator):
                     break
                 area.type = 'VIEW_3D'
 
-class HoloLab_OT_DeleteOriginal(bpy.types.Operator):
+class HOLOLAB_OT_DeleteOriginal(bpy.types.Operator):
     bl_idname = "hololab.delete_original"
     bl_label = "Delete Original"
     bl_description = "Delete unnecessary original object and tetextures from project for export the model as USDZ file."
@@ -459,8 +459,8 @@ class HoloLab_OT_DeleteOriginal(bpy.types.Operator):
         with bpy.context.temp_override(selected_objects=[object_source]):
             bpy.ops.object.delete()
 
-class HoloLab_PT_SideBar(bpy.types.Panel):
-    bl_idname = "hololab.sidebar"
+class HOLOLAB_PT_SideBar(bpy.types.Panel):
+    bl_idname = "HOLOLAB_PT_SideBar"
     bl_label = "HoloLab"
     bl_space_type = "VIEW_3D"
     bl_region_type = "UI"
@@ -484,7 +484,7 @@ class HoloLab_PT_SideBar(bpy.types.Panel):
         box.prop(scene, "texture_name")
         box.prop(scene, "texture_resolution")
 
-        op = layout.operator(HoloLab_OT_ModerateWeightReductionTools.bl_idname, text='Start', icon='PLAY')
+        op = layout.operator(HOLOLAB_OT_ModerateWeightReductionTools.bl_idname, text='Start', icon='PLAY')
         op.remove_doubles = scene.remove_doubles
         op.decimate_rate = scene.decimate_rate
         op.texture_name = scene.texture_name
@@ -493,12 +493,12 @@ class HoloLab_PT_SideBar(bpy.types.Panel):
         layout.separator()
         layout.label(text="Export:")
 
-        op = layout.operator(HoloLab_OT_SaveBakedTexture.bl_idname, text='Texture', icon='FILE_TICK')
+        op = layout.operator(HOLOLAB_OT_SaveBakedTexture.bl_idname, text='Texture', icon='FILE_TICK')
         op.texture_name = scene.texture_name
 
         layout.label(text="Delete:")
 
-        op = layout.operator(HoloLab_OT_DeleteOriginal.bl_idname, text='Original Model', icon='TRASH')
+        op = layout.operator(HOLOLAB_OT_DeleteOriginal.bl_idname, text='Original Model', icon='TRASH')
         op.texture_name = scene.texture_name
 
 def menu_draw(cls, context):
@@ -549,10 +549,10 @@ def unregister_properies():
     del scene.texture_resolution
 
 classes = [
-    HoloLab_OT_ModerateWeightReductionTools,
-    HoloLab_OT_SaveBakedTexture,
-    HoloLab_OT_DeleteOriginal,
-    HoloLab_PT_SideBar
+    HOLOLAB_OT_ModerateWeightReductionTools,
+    HOLOLAB_OT_SaveBakedTexture,
+    HOLOLAB_OT_DeleteOriginal,
+    HOLOLAB_PT_SideBar
 ]
 
 def register():
