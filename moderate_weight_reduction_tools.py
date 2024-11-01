@@ -359,22 +359,6 @@ class HOLOLAB_OT_SaveBakedTexture(bpy.types.Operator):
 
         return {'FINISHED'}
 
-    def execute(self, context):
-        self.report({'INFO'}, "execute save baked texture function")
-
-        previous_language = bpy.context.preferences.view.language
-        bpy.context.preferences.view.language = 'en_US'
-
-        try:
-            self.save_texture()
-        except Exception as e:
-            self.report({'ERROR'}, f"{e}")
-            return {'CANCELLED'}
-        finally:
-            bpy.context.preferences.view.language = previous_language
-
-        return {'FINISHED'}
-
     def save_texture(self):
         self.report({'INFO'}, f"{sys._getframe().f_code.co_name}")
 
