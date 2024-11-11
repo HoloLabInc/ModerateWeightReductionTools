@@ -289,8 +289,32 @@ class HOLOLAB_OT_ModerateWeightReductionTools(bpy.types.Operator):
         object_target = bpy.data.objects.get("Result")
         bpy.context.view_layer.objects.active = object_target
 
+        # store metallic settings
+        metallic_socket = None
+        metallic_value = 0.0
+        for material in object_source.data.materials:
+            principled_bsdf = [node for node in material.node_tree.nodes if node.bl_idname == 'ShaderNodeBsdfPrincipled'][0]
+            if not ('Metallic' in principled_bsdf.inputs.keys()):
+                continue
+            if principled_bsdf.inputs['Metallic'].is_linked:
+                metallic_socket = principled_bsdf.inputs['Metallic'].links[0].from_socket
+                material.node_tree.links.remove(principled_bsdf.inputs['Metallic'].links[0])
+            else:
+                metallic_value = principled_bsdf.inputs['Metallic'].default_value
+                principled_bsdf.inputs['Metallic'].default_value = 0
+
         # execute bake
         bpy.ops.object.bake(type='DIFFUSE')
+
+        # restore metallic settings
+        for material in object_source.data.materials:
+            principled_bsdf = [node for node in material.node_tree.nodes if node.bl_idname == 'ShaderNodeBsdfPrincipled'][0]
+            if not ('Metallic' in principled_bsdf.inputs.keys()):
+                continue
+            if metallic_socket is not None:
+                material.node_tree.links.new(metallic_socket, principled_bsdf.inputs['Metallic'])
+            else:
+                principled_bsdf.inputs['Metallic'].default_value = metallic_value
 
     def triangulate_faces(self):
         self.report({'INFO'}, f"{sys._getframe().f_code.co_name}")
@@ -310,6 +334,12 @@ class HOLOLAB_OT_ModerateWeightReductionTools(bpy.types.Operator):
         bpy.ops.object.mode_set(mode='OBJECT')
 
     def export_gltf(self):
+        # select target object
+        bpy.ops.object.select_all(action='DESELECT')
+        object_target = bpy.data.objects.get("Result")
+        object_target.select_set(True)
+        bpy.context.view_layer.objects.active = object_target
+
         # this is workaround for the issue that gltf 2.0 does not export correctly.
         temp_file = os.path.join(bpy.app.tempdir, "temp.glb")
         bpy.ops.export_scene.gltf(filepath=temp_file, use_selection=True)
