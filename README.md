@@ -22,8 +22,8 @@ https://docs.blender.org/manual/en/latest/editors/preferences/extensions.html
 1. Select the model you want to reduction, and make a object active.  
 2. Open [HoloLab] tab in side panel of 3D view.  
 3. Push [Start] button to output the model with reduced polygon mesh and optimized textures.  
-4. (option) To export the model as FBX format, push [Texture] button to save the texture file.  
-5. (option) To export the model as USDZ format, push [Original Model] button to remove the unnecessary original model and tetextures from the project.  
+4. (option) To export the model as FBX format, push [Texture] button of "Export:" section to save the texture file.  
+5. (option) To export the model as USDZ format, push [Original Model] button of "Delete:" section to remove the unnecessary original model and tetextures from the project.  
 
 ## Settings
 
