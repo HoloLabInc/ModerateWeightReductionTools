@@ -42,8 +42,8 @@ bl_info = {
     "category": "Tool"
 }
 
-class HOLOLAB_OT_ModerateWeightReductionTools(bpy.types.Operator):
-    bl_idname = "hololab.moderate_weight_reduction_tools"
+class HOLOLAB_OT_ModerateWeightReduction(bpy.types.Operator):
+    bl_idname = "hololab.moderate_weight_reduction"
     bl_label = "Moderate Weight Reduction Tools"
     bl_description = "Generates models with reduced polygon mesh and optimized textures from the original model."
     bl_options = {'REGISTER', 'UNDO'}
@@ -498,7 +498,7 @@ class HOLOLAB_PT_SideBar(bpy.types.Panel):
         box.prop(scene, "texture_name")
         box.prop(scene, "texture_resolution")
 
-        op = layout.operator(HOLOLAB_OT_ModerateWeightReductionTools.bl_idname, text='Start', icon='PLAY')
+        op = layout.operator(HOLOLAB_OT_ModerateWeightReduction.bl_idname, text='Start', icon='PLAY')
         op.remove_doubles = scene.remove_doubles
         op.decimate_rate = scene.decimate_rate
         op.texture_name = scene.texture_name
@@ -563,7 +563,7 @@ def unregister_properies():
     del scene.texture_resolution
 
 classes = [
-    HOLOLAB_OT_ModerateWeightReductionTools,
+    HOLOLAB_OT_ModerateWeightReduction,
     HOLOLAB_OT_SaveBakedTexture,
     HOLOLAB_OT_DeleteOriginal,
     HOLOLAB_PT_SideBar
