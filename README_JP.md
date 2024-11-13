@@ -14,8 +14,8 @@
 1. 上部メニューから[編集] > [プリファレンス]（[Edit] > [Preferences]）ボタンを押して設定画面を開きます。  
 2. 左カラムから[アドオン]（[Add-ons]）タブを選択してアドオンの設定画面を開きます。  
 3. 右上のドロップダウンから[ディスクからインストール]（[Install from Disk]）ボタンを押してファイル選択ダイアログを開きます。  
-4. ファイル選択ダイアログでアドオンのファイル「moderate_weight_reduction_tools.py」を選択して[ディスクからインストール]（[Install from Disk]）ボタンを押します。  
-5. アドオンが自動的に有効化されていない場合は、アドオンのリストから「Moderate Weight Reduction Tools」のチェックボックスにチェックを入れて有効化します。  
+4. ファイル選択ダイアログでアドオンのファイル「moderate_weight_reduction_tools.py」を選択、[ディスクからインストール]（[Install from Disk]）ボタンを押してアドオンをインストールします。  
+5. インストールされたアドオンが自動的に有効化されていない場合は、アドオンのリストから「Moderate Weight Reduction Tools」のチェックボックスにチェックを入れて有効化します。  
 
 アドオンのインストール方法についての詳細は以下のドキュメントをご参照ください。  
 https://docs.blender.org/manual/ja/latest/editors/preferences/extensions.html
