@@ -57,7 +57,7 @@ class HOLOLAB_OT_ModerateWeightReduction(bpy.types.Operator):
     decimate_rate: bpy.props.FloatProperty(
         name="decimate_rate",
         description="Ratio of polygon mesh left after reduction.",
-        default=0.03,
+        default=0.05,
         min=0.0,
         max=1.0
     )
@@ -230,7 +230,7 @@ class HOLOLAB_OT_ModerateWeightReduction(bpy.types.Operator):
         # set smart uv project
         bpy.ops.object.mode_set(mode='EDIT')
         bpy.ops.mesh.select_all(action='SELECT')
-        bpy.ops.uv.smart_project(angle_limit=0.349066, margin_method='FRACTION', island_margin=0.001, area_weight=0.0, correct_aspect=True, scale_to_bounds=False)
+        bpy.ops.uv.smart_project(angle_limit=0.349066, margin_method='FRACTION', rotate_method='AXIS_ALIGNED', island_margin=0.001, area_weight=0.0, correct_aspect=True, scale_to_bounds=False)
         bpy.ops.object.mode_set(mode='OBJECT')
 
     # apply auto smooth
@@ -530,7 +530,7 @@ def register_properies():
     scene.decimate_rate = bpy.props.FloatProperty(
         name="Rate of Polygon Left",
         description="Ratio of polygon mesh left after reduction.",
-        default=0.03,
+        default=0.05,
         min=0.0,
         max=1.0
     )

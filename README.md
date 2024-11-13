@@ -29,7 +29,7 @@ https://docs.blender.org/manual/en/latest/editors/preferences/extensions.html
 
 * Mesh Settigbs:  
     * Mesh Integration ... If the mesh is split, overlapping vertices are joined. (Default is not apply.)  
-    * Rate of Polygon Left ... Ratio of polygon mesh left after reduction. (Default is 3%.)  
+    * Rate of Polygon Left ... Ratio of polygon mesh left after reduction. (Default is 5%.)  
 * Texture Settings:  
     * Name ... Name of new texture. (Default is "texture".)  
     * Resolution ... Resolution of new texture. (Default is 1024x1024.)  
