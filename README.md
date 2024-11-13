@@ -1,8 +1,11 @@
 # Moderate Weight Reduction Tools
 
+English | [Japanese](./README_JP.md)
+
 ## About
 
-This blender add-on generates a model from the original model with reduced polygon mesh and optimized textures.    
+This blender add-on generates a model from the original model with reduced polygon mesh and optimized textures.  
+If you need more details about how to use this blender add-on, Please refer to this [Video]() and [Article]().  
 
 ![image](image.jpg)  
 
@@ -11,7 +14,7 @@ This blender add-on generates a model from the original model with reduced polyg
 1. Open preferences by push [Edit] > [Preferences] button from the top menu.  
 2. Open add-ons section by select [Add-ons] tab in the left column.
 3. Open the file select dialog by push [Install from Disk] button from drop-down menu in top right.  
-4. elect the add-on file "moderate_weight_reduction_tools.py" in the file selection dialog.  
+4. Select the add-on file "moderate_weight_reduction_tools.py" in the file selection dialog.  
 5. If this add-on is not enabled, check the box next to "Moderate Weight Reduction Tools" in add-ons list.  
 
 If you need more details, Please refer to this page about how to install add-on.  
