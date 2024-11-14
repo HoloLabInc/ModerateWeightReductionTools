@@ -5,7 +5,7 @@ English | [Japanese](./README_JP.md)
 ## About
 
 This blender add-on generates a model from the original model with reduced polygon mesh and optimized textures.  
-If you need more details about how to use this blender add-on, Please refer to this [Video]() and [Article]().  
+If you need more details about how to use this blender add-on, Please refer to this [Video](https://www.youtube.com/@hololabinc) and [Article](https://blog.hololab.co.jp/).  
 
 ![image](image.jpg)  
 
@@ -23,7 +23,7 @@ https://docs.blender.org/manual/en/latest/editors/preferences/extensions.html
 ## How To Use
 
 1. Select the model you want to reduction, and make a object active.  
-2. Open [HoloLab] tab in side panel of 3D view.  
+2. Open [HoloLab] tab in side panel of 3D Viewport.  
 3. Push [Start] button to output the model with reduced polygon mesh and optimized textures.  
 4. (option) To export the model as FBX format, push [Texture] button of "Export:" section to save the texture file.  
 5. (option) To export the model as USDZ format, push [Original Model] button of "Delete:" section to remove the unnecessary original model and tetextures from the project.  
@@ -45,3 +45,8 @@ This add-on works with Blender 3.6, 4.0, 4.1, and 4.2.
 
 Copyright &copy; 2024 [HoloLab Inc.](https://hololab.co.jp/)  
 This add-on is distributed under the MIT license.  
+
+## Related Information
+
+* [Blog@HoloLabInc](https://blog.hololab.co.jp/)  
+* [YouTube@HoloLabInc](https://www.youtube.com/@hololabinc)  

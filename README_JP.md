@@ -5,7 +5,7 @@
 ## 概要
 
 このツールはポリゴン削減とテクスチャ最適化によりモデルを手軽に軽量化するBlenderアドオンです。  
-詳細な使い方はこちらの[動画]()や[記事]()で解説していますのでご参照ください。  
+詳細な使い方はこちらの[動画](https://www.youtube.com/@hololabinc)や[記事](https://blog.hololab.co.jp/)で解説していますのでご参照ください。  
 
 ![image](image.jpg)  
 
@@ -23,7 +23,7 @@ https://docs.blender.org/manual/ja/latest/editors/preferences/extensions.html
 ## 使用方法
 
 1. 軽量化したいモデルのオブジェクトを選択してアクティブ状態にします。  
-2. 3Dビューのサイドパネルから[HoloLab]タブを開きます。  
+2. 3Dビューポートのサイドパネルから[HoloLab]タブを開きます。  
 3. パラメータを設定して[Start]ボタンを押すと、自動的にポリゴンの削減やテクスチャの最適化が実行されます。  
 4. (オプション) モデルをFBXフォーマットで保存する場合、「Export:」セクションの[Texture]ボタンを押してテクスチャを保存してください。  
 5. (オプション) モデルをUSDZフォーマットで保存する場合、「Delete:」セクションの[Original Model]ボタンを押して不要な元のモデルやテクスチャのオブジェクトを削除してください。  
@@ -45,3 +45,8 @@ https://docs.blender.org/manual/ja/latest/editors/preferences/extensions.html
 
 Copyright &copy; 2024 [HoloLab Inc.](https://hololab.co.jp/)  
 このアドオンはMITライセンスでライセンスされています。  
+
+## 関連情報
+
+* [ブログ@HoloLabInc](https://blog.hololab.co.jp/)  
+* [YouTube@HoloLabInc](https://www.youtube.com/@hololabinc)  
