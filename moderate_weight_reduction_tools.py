@@ -177,16 +177,17 @@ class HOLOLAB_OT_ModerateWeightReduction(bpy.types.Operator):
         bpy.context.view_layer.objects.active = object_source
 
         # rename exist image texture with same name as specified name that are linked in source object material
+        texture_name = self.texture_name if self.texture_name else "texture"
         for material in object_source.data.materials:
             principled_bsdf = [node for node in material.node_tree.nodes if node.bl_idname == 'ShaderNodeBsdfPrincipled'][0]
             if principled_bsdf.inputs['Base Color'].is_linked is False:
                 continue
             image = principled_bsdf.inputs['Base Color'].links[0].from_socket.node.image
-            if image.name == self.texture_name:
+            if image.name == texture_name:
                 image.name += ".original"
 
         # remove exist image textures that generated at last run　
-        exist_images = [image for image in bpy.data.images if image.name == self.texture_name]
+        exist_images = [image for image in bpy.data.images if image.name == texture_name]
         for exist_image in exist_images:
             bpy.data.images.remove(image=exist_image)
 
@@ -211,7 +212,7 @@ class HOLOLAB_OT_ModerateWeightReduction(bpy.types.Operator):
 
         # create image texture
         resolution = int(self.texture_resolution)
-        image_texture.image = bpy.data.images.new(name=self.texture_name, width=resolution, height=resolution)
+        image_texture.image = bpy.data.images.new(name=texture_name, width=resolution, height=resolution)
 
         # link color socket from image texture to principled bsdf
         principled_bsdf = [node for node in node_tree.nodes if node.bl_idname == 'ShaderNodeBsdfPrincipled'][0]
@@ -389,6 +390,7 @@ class HOLOLAB_OT_SaveBakedTexture(bpy.types.Operator):
 
         return {'FINISHED'}
 
+    # save texture
     def save_texture(self):
         self.report({'INFO'}, f"{sys._getframe().f_code.co_name}")
 
@@ -398,8 +400,18 @@ class HOLOLAB_OT_SaveBakedTexture(bpy.types.Operator):
         if object_target is None:
             return
 
+        # get baked texture name
+        texture_name = ""
+        for material in object_target.data.materials:
+            principled_bsdf = [node for node in material.node_tree.nodes if node.bl_idname == 'ShaderNodeBsdfPrincipled'][0]
+            if principled_bsdf.inputs['Base Color'].is_linked is False:
+                continue
+            texture_name = principled_bsdf.inputs['Base Color'].links[0].from_socket.node.image.name
+        if not texture_name:
+            return
+
         # get baked texture
-        texture = bpy.data.images[self.texture_name]
+        texture = bpy.data.images[texture_name]
         if texture is None:
             return
 
@@ -411,7 +423,7 @@ class HOLOLAB_OT_SaveBakedTexture(bpy.types.Operator):
                     if space.type != 'IMAGE_EDITOR':
                         continue
                     space.image = texture
-                    filepath = os.path.join(self.directory, f"{self.texture_name}.png")
+                    filepath = os.path.join(self.directory, f"{texture_name}.png")
                     self.report({'INFO'}, f"{filepath}")
                     bpy.ops.image.save_as(filepath=filepath, relative_path=True)
                     break
@@ -446,20 +458,32 @@ class HOLOLAB_OT_DeleteOriginal(bpy.types.Operator):
 
         return {'FINISHED'}
 
+    # delete texture
     def delete_texture(self):
         self.report({'INFO'}, f"{sys._getframe().f_code.co_name}")
 
-        # check target object
+        # select target object
         bpy.ops.object.select_all(action='DESELECT')
-        object_source = bpy.data.objects.get("Original")
-        if object_source is None:
+        object_target = bpy.data.objects.get("Result")
+        if object_target is None:
+            return
+
+        # get baked texture name
+        texture_name = ""
+        for material in object_target.data.materials:
+            principled_bsdf = [node for node in material.node_tree.nodes if node.bl_idname == 'ShaderNodeBsdfPrincipled'][0]
+            if principled_bsdf.inputs['Base Color'].is_linked is False:
+                continue
+            texture_name = principled_bsdf.inputs['Base Color'].links[0].from_socket.node.image.name
+        if not texture_name:
             return
 
         # delete all textures without specified texture
-        images = [image for image in bpy.data.images if image.name != self.texture_name]
+        images = [image for image in bpy.data.images if image.name != texture_name]
         for image in images:
             bpy.data.images.remove(image=image)
 
+    # delete object
     def delete_object(self):
         self.report({'INFO'}, f"{sys._getframe().f_code.co_name}")
 
