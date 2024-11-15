@@ -4,7 +4,7 @@
 
 ## 概要
 
-このツールはポリゴン削減とテクスチャ最適化によりモデルを手軽に軽量化するBlenderアドオンです。  
+このBlenderアドオンはポリゴン削減とテクスチャ最適化によりモデルを手軽に軽量化する機能を提供します。  
 詳細な使い方はこちらの[動画](https://www.youtube.com/@hololabinc)や[記事](https://blog.hololab.co.jp/)で解説していますのでご参照ください。  
 
 ![image](image.jpg)  
