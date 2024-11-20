@@ -39,7 +39,7 @@ https://docs.blender.org/manual/ja/latest/editors/preferences/extensions.html
 
 ## サポートバージョン
 
-このアドオンはBlender 3.6、4.0、4.1、および4.2で動作します。  
+このアドオンはBlender 3.6、4.0、4.1、4.2、および4.3で動作します。  
 
 ## ライセンス
 

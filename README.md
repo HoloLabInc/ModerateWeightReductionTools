@@ -39,7 +39,7 @@ https://docs.blender.org/manual/en/latest/editors/preferences/extensions.html
 
 ## Support Versions
 
-This add-on works with Blender 3.6, 4.0, 4.1, and 4.2.  
+This add-on works with Blender 3.6, 4.0, 4.1, 4.2, and 4.3.  
 
 ## License
 
