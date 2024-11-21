@@ -5,7 +5,7 @@ English | [Japanese](./README_JP.md)
 ## About
 
 This blender add-on generates a model from the original model with reduced polygon mesh and optimized textures.  
-If you need more details about how to use this blender add-on, Please refer to this [Video](https://www.youtube.com/@hololabinc) and [Article](https://blog.hololab.co.jp/).  
+If you need more details about how to use this blender add-on, Please refer to this [Video](https://www.youtube.com/watch?v=8FJ84-j-Ijc) and [Article](https://blog.hololab.co.jp/entry/2024/11/22/120000).  
 
 ![image](image.jpg)  
 
@@ -48,5 +48,5 @@ This add-on is distributed under the MIT license.
 
 ## Related Information
 
-* [Blog@HoloLabInc](https://blog.hololab.co.jp/)  
-* [YouTube@HoloLabInc](https://www.youtube.com/@hololabinc)  
+* [Blog@HoloLabInc](https://blog.hololab.co.jp/entry/2024/11/22/120000)  
+* [YouTube@HoloLabInc](https://www.youtube.com/watch?v=8FJ84-j-Ijc)  

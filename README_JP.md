@@ -5,7 +5,7 @@
 ## 概要
 
 このBlenderアドオンはポリゴン削減とテクスチャ最適化によるモデルの軽量化を初心者でも手軽に使えるようにしたツールです。  
-詳細な使い方はこちらの[動画](https://www.youtube.com/@hololabinc)や[記事](https://blog.hololab.co.jp/)で解説していますのでご参照ください。  
+詳細な使い方はこちらの[動画](https://www.youtube.com/watch?v=8FJ84-j-Ijc)や[記事](https://blog.hololab.co.jp/entry/2024/11/22/120000)で解説していますのでご参照ください。  
 
 ![image](image.jpg)  
 
@@ -48,5 +48,5 @@ Copyright &copy; 2024 [HoloLab Inc.](https://hololab.co.jp/)
 
 ## 関連情報
 
-* [ブログ@HoloLabInc](https://blog.hololab.co.jp/)  
-* [YouTube@HoloLabInc](https://www.youtube.com/@hololabinc)  
+* [Blog@HoloLabInc](https://blog.hololab.co.jp/entry/2024/11/22/120000)  
+* [YouTube@HoloLabInc](https://www.youtube.com/watch?v=8FJ84-j-Ijc)  
