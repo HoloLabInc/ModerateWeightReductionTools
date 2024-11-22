@@ -351,12 +351,6 @@ class HOLOLAB_OT_SaveBakedTexture(bpy.types.Operator):
     bl_description = "Save baked texture to PNG file for export the model as FBX file."
     bl_options = {'REGISTER', 'UNDO'}
 
-    texture_name: bpy.props.StringProperty(
-        name="texture_name",
-        description="texture name",
-        default="texture"
-    )
-
     directory: bpy.props.StringProperty(
         name="directory_path",
         default="",
@@ -434,12 +428,6 @@ class HOLOLAB_OT_DeleteOriginal(bpy.types.Operator):
     bl_label = "Delete Original"
     bl_description = "Delete unnecessary original object and tetextures from project for export the model as USDZ file."
     bl_options = {'REGISTER', 'UNDO'}
-
-    texture_name: bpy.props.StringProperty(
-        name="texture_name",
-        description="texture name",
-        default="texture"
-    )
 
     def execute(self, context):
         self.report({'INFO'}, "execute delete Original object and texture function")
@@ -532,12 +520,10 @@ class HOLOLAB_PT_SideBar(bpy.types.Panel):
         layout.label(text="Export:")
 
         op = layout.operator(HOLOLAB_OT_SaveBakedTexture.bl_idname, text='Texture', icon='FILE_TICK')
-        op.texture_name = scene.texture_name
 
         layout.label(text="Delete:")
 
         op = layout.operator(HOLOLAB_OT_DeleteOriginal.bl_idname, text='Original Model', icon='TRASH')
-        op.texture_name = scene.texture_name
 
 def menu_draw(cls, context):
     cls.layout.menu(HOLOLAB_PT_SideBar.bl_idname)
